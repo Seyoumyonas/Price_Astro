@@ -1,4 +1,105 @@
-/* Diagnostic Styling */
-* {
-    outline: 1px dotted gray;
-}
+/* General Body Styling */
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #3498db, #f9f9fb); /* Dynamic gradient */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed; /* Ensure the background doesn't scroll */
+    background-size: cover; /* Cover the entire screen */
+  }
+  
+  
+  /* Container Styling */
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+ /* Header Styling */
+h1 {
+    text-align: center;
+    background-color: #3498db; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Reduced padding */
+    margin-bottom: 20px;
+    font-size: 1.8rem; /* Adjust font size */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  
+  /* Card Styling */
+  .crypto-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+  }
+  
+  .crypto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .crypto-card .rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .crypto-card .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .crypto-card .price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+  
+  .crypto-card .info {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .crypto-card .change {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .crypto-card .change.positive {
+    color: #27ae60;
+  }
+  
+  .crypto-card .change.negative {
+    color: #e74c3c;
+  }
+  
+  /* Responsive Layout */
+  .grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  

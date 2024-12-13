@@ -1,16 +1,39 @@
 ---
-// Base Layout
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-// Global Styles
 import '../styles/myCustomStyles.css';
 
-// Your App
-// import your <App />
+const API_URL = "https://api.coincap.io/v2/assets";
+const response = await fetch(API_URL, {
+  headers: {
+    Authorization: `Bearer 15ee76a5-a7a1-46de-ab9f-37b92aed0611`
+  },
+});
+
+let cryptoData = [];
+if (response.ok) {
+  const json = await response.json();
+  cryptoData = json.data.slice(0, 12); // Display top 12 cryptocurrencies
+} else {
+  console.error(`Failed to fetch data: ${response.statusText}`);
+}
 ---
 
 <BaseLayout>
-	
-	✅ Check ✅ Check
-
+  <div class="container">
+    <h1 class="text-3xl font-bold">Top Cryptocurrencies</h1>
+    <div class="grid">
+      {cryptoData.map((crypto) => (
+        <div class="crypto-card">
+          <div class="rank">#{crypto.rank}</div>
+          <div class="name">{crypto.name} ({crypto.symbol})</div>
+          <div class="price">${parseFloat(crypto.priceUsd).toFixed(2)}</div>
+          <div class="info">Market Cap: ${parseFloat(crypto.marketCapUsd).toFixed(2)}</div>
+          <div class="info">Volume (24h): ${parseFloat(crypto.volumeUsd24Hr).toFixed(2)}</div>
+          <div class={`change ${parseFloat(crypto.changePercent24Hr) > 0 ? 'positive' : 'negative'}`}>
+            {parseFloat(crypto.changePercent24Hr).toFixed(2)}%
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </BaseLayout>

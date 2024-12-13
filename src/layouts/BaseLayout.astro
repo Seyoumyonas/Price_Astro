@@ -1,22 +1,27 @@
----
-
----
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro with Daisy UI (a Tailwind Plugin)</title>
+		<title>Crypto Prices</title>
 	</head>
-	
-	<body data-theme="">
+	<body data-theme="light" class="bg-base-200 text-base-content">
+		<!-- Header -->
+		<header class="bg-primary text-primary-content p-4">
+			<div class="container mx-auto flex justify-between items-center">
+				<h1 class="text-xl font-bold">Crypto Prices</h1>
+			</div>
+		</header>
 
-		
+		<!-- Main Content -->
+		<main class="container mx-auto p-6">
+			<slot />
+		</main>
 
-		<slot/>
-
-
+		<!-- Footer -->
+		<footer class="bg-secondary text-secondary-content p-4 text-center">
+			<p>Powered by CoinCap API | Built with ❤️ using Astro</p>
+		</footer>
 	</body>
 </html>
